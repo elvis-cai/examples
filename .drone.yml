@@ -8,5 +8,6 @@ pipeline:
       - echo "hola"
       - echo "double kill"
       - cat a
+      - cat b
     when:
       event: [pull_request]
