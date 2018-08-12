@@ -5,5 +5,6 @@ pipeline:
       - echo "nihao"
       - sleep 10
       - echo "hola"
+      - printenv
     when:
       event: [pull_request]
