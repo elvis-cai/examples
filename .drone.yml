@@ -7,4 +7,4 @@ pipeline:
       - echo "hola"
       - printenv
     when:
-      event: [pull_request]
+#      event: [pull_request]
