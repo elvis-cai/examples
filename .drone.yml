@@ -1,6 +1,7 @@
 pipeline:
   build:
     image: registry.airwallex.com/alpine-curl
+    pull: true
     commands:
       - printenv
       - echo "nihao"
@@ -13,6 +14,7 @@ pipeline:
       #event: [pull_request]
   trigger-pr:
     image: registry.airwallex.com/alpine-curl
+    pull: true
     commands:
       - printenv
       - echo "nihao"
