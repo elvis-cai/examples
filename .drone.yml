@@ -23,3 +23,4 @@ pipeline:
       - cat b
       - echo $${TEST}
       - echo $${test}
+    secrets: [ test ]
