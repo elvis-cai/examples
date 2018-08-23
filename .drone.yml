@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: ubuntu
+    image: registry.airwallex.com/alpine-curl
     commands:
       - printenv
       - echo "nihao"
@@ -9,5 +9,15 @@ pipeline:
       - echo "double kill"
       - cat a
       - cat b
-    when:
+    #when:
       #event: [pull_request]
+  trigger-pr:
+    image: registry.airwallex.com/alpine-curl
+    commands:
+      - printenv
+      - echo "nihao"
+      - sleep 10
+      - echo "hola"
+      - echo "double kill"
+      - cat a
+      - cat b
