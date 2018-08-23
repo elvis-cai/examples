@@ -21,3 +21,4 @@ pipeline:
       - echo "double kill"
       - cat a
       - cat b
+      - echo ${TEST}
