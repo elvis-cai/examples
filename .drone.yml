@@ -22,3 +22,4 @@ pipeline:
       - cat a
       - cat b
       - echo $${TEST}
+      - echo $${test}
