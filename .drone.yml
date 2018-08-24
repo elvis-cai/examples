@@ -17,6 +17,8 @@ pipeline:
     pull: true
     commands:
       - printenv
+      - sleep 10
+      - echo "this is branch 4"
       - curl -s "https://api.github.com/repos/${CI_REPO_NAME}/pulls?access_token=$${TOKEN}" | jq -r '.[].head.ref'  | grep ${DRONE_BRANCH} > /dev/null 2>&1  && trigger=1 || trigger=0
       - echo "trigger is $${trigger}"
     secrets: [ token ]
