@@ -7,3 +7,15 @@ pipeline:
       - echo "hola"
     when:
       event: [pull_request]
+
+  trigger-jenkins:
+    when:
+      branch:
+        - develop
+        - feature/*
+        - feature/jenkins_integ
+      event: [push]
+    image: registry.airwallex.com/alpine-curl:latest
+    pull: true
+    commands:
+      - sh trigger.sh
