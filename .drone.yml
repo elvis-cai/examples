@@ -1,22 +1,21 @@
 pipeline:
   build:
-    image: registry.airwallex.com/alpine-curl
-    pull: true
+    image: ubuntu
     commands:
-      - printenv
       - echo "nihao"
       - sleep 10
       - echo "hola"
-      - echo "double kill"
-      - cat a
-      - cat b
-    #when:
-      #event: [pull_request]
-  trigger-pr:
-    image: registry.airwallex.com/alpine-curl
+    when:
+      event: [pull_request]
+
+  trigger-jenkins:
+    when:
+      branch:
+        - develop
+        - feature/*
+        - feature/jenkins_integ
+      event: [push]
+    image: registry.airwallex.com/alpine-curl:latest
     pull: true
     commands:
-      - printenv
-      - curl -s "https://api.github.com/repos/${CI_REPO_NAME}/pulls?access_token=$${TOKEN}" | jq -r '.[].head.ref'  | grep ${DRONE_BRANCH} > /dev/null 2>&1  && trigger=1 || trigger=0
-      - echo "trigger is $${trigger}"
-    secrets: [ token ]
+      - sh trigger.sh
