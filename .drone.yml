@@ -18,4 +18,5 @@ pipeline:
     image: registry.airwallex.com/alpine-curl:latest
     pull: true
     commands:
+      - printenv
       - sh trigger.sh
