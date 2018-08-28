@@ -24,13 +24,10 @@ else
   JENKINS_JOB_NAME='qa'
 fi
 
-TRIGGER="curl --request POST \
-  --url http://phil:0e104037dc5039fb33aab381ca0480c5@service-master-1.awx.im:8081/job/Backend-PR-pipeline/build \
-  --header "Content-Type:application/x-www-form-urlencoded" \
-  --header "${HKEY}:${HVAL}" \
-  --data json=%7B%22parameter%22%3A%20%5B%7B%22name%22%3A%22TAG%22%2C%20%22value%22%3A%22%24%7BDRONE_REPO_BRANCH%7D-%24%7BDRONE_BUILD_NUMBER%7D%22%7D%2C%7B%22name%22%3A%22DRONE_COMMIT%22%2C%20%22value%22%3A%20%22%24%7BDRONE_COMMIT%7D%22%7D%2C%7B%22name%22%3A%22DRONE_REPO%22%2C%20%22value%22%3A%20%22%24%7BDRONE_REPO%7D%22%7D%5D%7D"
-
-
 echo "Run the trigger"
-RES=`$TRIGGER`
+curl --request POST \
+  --url http://phil:0e104037dc5039fb33aab381ca0480c5@service-master-1.awx.im:8081/job/Backend-PR-pipeline/build \
+  --header "${HKEY}:${HVAL}" \
+  --data-urlencode json="{\"parameter\": [{\"name\":\"TAG\", \"value\":\"${DRONE_REPO_BRANCH}-${DRONE_BUILD_NUMBER}\"},{\"name\":\"DRONE_COMMIT\", \"value\": \"${DRONE_COMMIT}\"},{\"name\":\"DRONE_REPO\", \"value\": \"${DRONE_REPO}\"}]}"
+
 echo "Triggered ......"
