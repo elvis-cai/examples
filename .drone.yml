@@ -19,4 +19,5 @@ pipeline:
     pull: true
     commands:
       - printenv
+      - [ ${DRONE_BRANCH} == "feature/two" ] && echo "this is develop branch" || exit 0
       - sh trigger.sh
