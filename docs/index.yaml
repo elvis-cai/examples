@@ -3,11 +3,21 @@ entries:
   ichart:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-09-24T11:42:31.036510932+10:00
+    created: 2018-09-24T11:48:08.852269075+10:00
     description: A Helm chart for Kubernetes
     digest: ae8515e4e324078d940b86f8fdb3253372fba283bf09e43700341d72a340ac0f
     name: ichart
     urls:
     - https://elvis-cai.github.io/examples/ichart-0.1.0.tgz
     version: 0.1.0
-generated: 2018-09-24T11:42:31.036165579+10:00
+  nginx:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-09-24T11:48:08.852499772+10:00
+    description: A Helm chart for Kubernetes
+    digest: ffc744f68ec85e335869db718e0c8005f009aadebbaa1993abd94a50e84f2283
+    name: nginx
+    urls:
+    - https://elvis-cai.github.io/examples/nginx-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-09-24T11:48:08.851883447+10:00
